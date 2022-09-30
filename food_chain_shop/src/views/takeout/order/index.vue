@@ -145,7 +145,7 @@
           :total="totalDataNumber"></el-pagination>
       </div>
     </div>
-    <Cancel v-if="open_edit" :open_edit="open_edit" :order_no="order_no" @closeDialog="closeDialogFunc($event, 'edit')">
+    <Cancel v-if="open_edit" :open_edit="open_edit" :order_no="order_no" :order_id="order_id" @closeDialog="closeDialogFunc($event, 'edit')">
     </Cancel>
     <!--处理-->
     <refund v-if="open_refund" :open_edit="open_refund" :order_no="order_no" :order_id="order_id"
@@ -359,7 +359,8 @@
       },
       /*打开取消*/
       cancelClick(item) {
-        this.order_no = item.order_id;
+        this.order_id = item.order_id;
+        this.order_no = item.order_no;
         this.open_edit = true;
       },
       refundClick(item) {
